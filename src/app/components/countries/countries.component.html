@@ -1,4 +1,9 @@
-<div class="jumbotron bg-white text-center">
+
+    <div class="ui  inverted dimmer" [class.active]='loading'>
+      <div class="ui text loader">Loading</div>
+    </div>
+
+  <div class="jumbotron bg-white text-center">
     <h1 class="display-4">Corona Covid- 19 Tracker Country wise</h1>
     <hr>
     <div class="mx-auto">
@@ -10,23 +15,27 @@
         </div>
     </div>
     <app-dashboard-card [totalConfirmed]="totalConfirmed" [totalRecovered]="totalRecovered" [totalDeaths]="totalDeaths"  [totalActive]="totalActive"></app-dashboard-card>
-   <div class="card">
-       <table class="table">
-           <thead>
-               <tr>
-                   <th>S No.</th>
-                   <th>Date</th>
-                   <th>Cases</th>
-               </tr>
-           </thead>
-           <tbody>
-               <tr *ngFor="let cs of selectedCountryData; index as i "  >
-                   <th>{{i+1}}</th>
-                   <th>{{cs.date|date}}</th>
-                   <th>{{cs.cases}}</th>
-               </tr>
-           </tbody>
-       </table>
-
+   <div class="row">
+       <div class="col" >
+        <google-chart [type]='chart.LineChart' [data]='dataTable' [height]='chart.height' [width]='chart.width' [options]='chart.options'></google-chart>
+       </div>
+       <div class="col" >
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S No.</th>
+                    <th>Date</th>
+                    <th>Cases</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cs of selectedCountryData; index as i "  >
+                    <th>{{i+1}}</th>
+                    <th>{{cs.date|date}}</th>
+                    <th>{{cs.cases}}</th>
+                </tr>
+            </tbody>
+        </table>  
+         </div>
    </div>  
 </div>
