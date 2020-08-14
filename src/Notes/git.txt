@@ -1,0 +1,6 @@
+echo "# AngularApp_Coriona_Tracker" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin6 https://github.com/pradeepdevloper1/AngularApp_Coriona_Tracker.git
+git push -u origin6 master
